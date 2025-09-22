@@ -1,6 +1,6 @@
 
 import Head from 'next/head';
-import Navigation from '../components/layout/Navigation';
+import ResponsiveNavigation from '../components/layout/ResponsiveNavigation';
 import { useEffect } from 'react';
 import Image from 'next/image';
 
@@ -147,7 +147,7 @@ export default function AICodeGenerator() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <div className="text-gray-800 pt-20" style={{ fontFamily: 'Inter, sans-serif', background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)' }}>
-        <Navigation />
+        <ResponsiveNavigation />
         <main className="min-h-screen py-12 bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/30">
           <div className="container mx-auto px-6 space-y-16">
           {/* Hero Section */}

@@ -3,10 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['localhost'],
-    unoptimized: true
+    unoptimized: false // Better for Vercel
   },
-  trailingSlash: true,
-  output: 'export' // ⬅️ NEW: enable static export
+  trailingSlash: true
 }
 
 module.exports = nextConfig

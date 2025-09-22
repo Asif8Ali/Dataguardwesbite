@@ -22,7 +22,7 @@
           </div>
 
 import Head from 'next/head';
-import Navigation from '../components/layout/Navigation';
+import ResponsiveNavigation from '../components/layout/ResponsiveNavigation';
 import Image from 'next/image';
 import { useState, useEffect, useMemo, useRef } from 'react';
 
@@ -36,7 +36,7 @@ export default function CustomSDK() {
         <title>Custom SDKs</title>
         <meta name="description" content="Custom SDKs for Modern CIAM Solutions - React Native & Flutter SDKs, expert developer support, and seamless integration for your apps." />
       </Head>
-      <Navigation />
+      <ResponsiveNavigation />
       <main className="container mx-auto px-4 py-12">
         <section className="max-w-4xl mx-auto bg-gradient-to-br from-white via-blue-50/40 to-cyan-50/50 rounded-2xl shadow-xl p-8 border border-gray-300/50 mb-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-center mb-6 uppercase tracking-tight drop-shadow-lg">Accelerate Your CIAM Integration</h1>

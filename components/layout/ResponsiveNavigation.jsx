@@ -5,7 +5,56 @@ import Image from 'next/image';
 export default function ResponsiveNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [navMode, setNavMode] = useState('desktop');
   const dropdownRef = useRef();
+  const navRef = useRef();
+  const contentRef = useRef();
+
+  // NDTV-style responsive detection with smart mobile switching
+  useEffect(() => {
+    const checkNavigationMode = () => {
+      if (navRef.current && contentRef.current) {
+        const navWidth = navRef.current.offsetWidth;
+        const contentWidth = contentRef.current.scrollWidth;
+        const hasOverflow = contentWidth > navWidth + 30; // Tighter buffer like NDTV
+
+        let newMode = 'desktop';
+        if (navWidth < 480) { // Mobile-first approach like NDTV
+          newMode = 'mobile-compact';
+        } else if (navWidth < 768 || hasOverflow) { // Earlier mobile switch
+          newMode = 'mobile';
+        } else if (navWidth < 1200) { // Larger tablet range
+          newMode = 'tablet';
+        }
+
+        if (newMode !== navMode) {
+          setNavMode(newMode);
+          if (newMode !== 'desktop') {
+            setIsMenuOpen(false);
+            setOpenDropdown(null);
+          }
+        }
+      }
+    };
+
+    const initialCheck = () => setTimeout(checkNavigationMode, 50);
+    initialCheck();
+
+    const resizeObserver = new ResizeObserver(checkNavigationMode);
+    if (navRef.current) {
+      resizeObserver.observe(navRef.current);
+    }
+
+    const handleResize = () => setTimeout(checkNavigationMode, 10);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      if (resizeObserver && navRef.current) {
+        resizeObserver.unobserve(navRef.current);
+      }
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [navMode]);
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -34,7 +83,33 @@ export default function ResponsiveNavigation() {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-white via-blue-50 to-cyan-50 shadow-xl sticky top-0 z-50 backdrop-blur-sm border-b border-cyan-100">
+    <>
+      {/* Professional Dropdown Styles */}
+      <style jsx>{`
+        .dropdown-content-professional {
+          display: none;
+        }
+        .dropdown:hover .dropdown-content-professional,
+        .dropdown-content-professional.show {
+          display: block;
+        }
+        .dropdown-item-professional {
+          display: block;
+          padding: 12px 16px;
+          text-decoration: none;
+          color: #374151;
+          transition: all 0.3s ease;
+          border-radius: 8px;
+          margin: 4px;
+        }
+        .dropdown-item-professional:hover {
+          background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+          color: #0891b2;
+          transform: translateX(4px);
+        }
+      `}</style>
+      
+      <nav ref={navRef} className="bg-gradient-to-r from-white via-blue-50 to-cyan-50 shadow-xl sticky top-0 z-50 backdrop-blur-sm border-b border-cyan-100">
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -53,8 +128,8 @@ export default function ResponsiveNavigation() {
             </a>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-6 items-center" ref={dropdownRef}>
+          {/* Desktop Navigation - Hidden when in mobile mode */}
+          <div ref={contentRef} className={`${navMode === 'mobile' || navMode === 'mobile-compact' ? 'hidden' : 'flex'} space-x-6 items-center`}>
             <Link href="/" legacyBehavior>
               <a className="relative px-4 py-2 text-cyan-600 transition-all font-medium group border-b-2 border-cyan-500">
                 <span className="relative z-10">Home</span>
@@ -138,9 +213,9 @@ export default function ResponsiveNavigation() {
             </a>
           </div>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Hamburger Button - Show when in mobile mode */}
           <button
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 bg-transparent border-none cursor-pointer focus:outline-none"
+            className={`${navMode === 'mobile' || navMode === 'mobile-compact' ? 'flex' : 'hidden'} flex-col justify-center items-center w-8 h-8 bg-transparent border-none cursor-pointer focus:outline-none`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
@@ -151,8 +226,8 @@ export default function ResponsiveNavigation() {
           </button>
         </div>
 
-        {/* Mobile Navigation Menu */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
+        {/* Mobile Navigation Menu - Show when in mobile mode and menu is open */}
+        <div className={`${navMode === 'mobile' || navMode === 'mobile-compact' ? 'block' : 'hidden'} transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
           <div className="flex flex-col space-y-2 py-4 bg-white rounded-lg shadow-lg border border-cyan-100 mt-2">
             <Link href="/" legacyBehavior>
               <a className="block px-4 py-3 text-cyan-600 font-medium border-l-4 border-cyan-500 bg-cyan-50" onClick={closeMenu}>
@@ -221,5 +296,6 @@ export default function ResponsiveNavigation() {
         </div>
       </div>
     </nav>
+    </>
   );
 }
