@@ -87,25 +87,37 @@ export default function ResponsiveNavigation() {
       {/* Professional Dropdown Styles */}
       <style jsx>{`
         .dropdown-content-professional {
-          display: none;
-        }
-        .dropdown:hover .dropdown-content-professional,
-        .dropdown-content-professional.show {
           display: block;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s ease;
+        }
+        .dropdown-content-professional:not(.hidden) {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
         }
         .dropdown-item-professional {
-          display: block;
+          display: flex;
+          align-items: center;
           padding: 12px 16px;
           text-decoration: none;
           color: #374151;
           transition: all 0.3s ease;
           border-radius: 8px;
           margin: 4px;
+          cursor: pointer;
+          white-space: nowrap;
         }
         .dropdown-item-professional:hover {
           background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
           color: #0891b2;
           transform: translateX(4px);
+        }
+        .dropdown-item-professional img {
+          display: inline-block !important;
+          vertical-align: middle;
         }
       `}</style>
       
@@ -130,18 +142,15 @@ export default function ResponsiveNavigation() {
 
           {/* Desktop Navigation - Hidden when in mobile mode */}
           <div ref={contentRef} className={`${navMode === 'mobile' || navMode === 'mobile-compact' ? 'hidden' : 'flex'} space-x-6 items-center`}>
-            <Link href="/" legacyBehavior>
-              <a className="relative px-4 py-2 text-cyan-600 transition-all font-medium group border-b-2 border-cyan-500">
-                <span className="relative z-10">Home</span>
-              </a>
-            </Link>
+            <div ref={dropdownRef} className="flex space-x-6 items-center">
+              <Link href="/" legacyBehavior>
+                <a className="relative px-4 py-2 text-cyan-600 transition-all font-medium group border-b-2 border-cyan-500">
+                  <span className="relative z-10">Home</span>
+                </a>
+              </Link>
 
             {/* Services Dropdown */}
-            <div
-              className="dropdown relative"
-              onMouseEnter={() => setOpenDropdown('services')}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
+            <div className="dropdown relative">
               <button
                 className="relative px-4 py-2 text-gray-700 hover:text-cyan-600 transition-all font-medium group flex items-center focus:outline-none"
                 onClick={() => handleDropdown('services')}
@@ -158,31 +167,35 @@ export default function ResponsiveNavigation() {
               <div
                 className={`dropdown-content-professional absolute left-0 mt-2 min-w-[260px] bg-white rounded-xl shadow-lg border border-cyan-100 z-50 ${openDropdown === 'services' ? '' : 'hidden'}`}
               >
-                <a href="#consulting" className="dropdown-item-professional">
-                  <span className="text-emerald-600 mr-3">🎯</span>
-                  <div className="font-medium">Strategic Consulting</div>
-                </a>
-                <a href="#implementation" className="dropdown-item-professional">
-                  <span className="text-blue-600 mr-3">⚙️</span>
-                  <div className="font-medium">Implementation Services</div>
-                </a>
-                <a href="#training" className="dropdown-item-professional">
-                  <span className="text-amber-600 mr-3">📖</span>
-                  <div className="font-medium">Training & Enablement</div>
-                </a>
-                <a href="#support" className="dropdown-item-professional">
-                  <span className="text-red-600 mr-3">🛠️</span>
-                  <div className="font-medium">Managed Services</div>
-                </a>
+                <Link href="/#offerings" legacyBehavior>
+                  <a className="dropdown-item-professional flex items-center" onClick={() => setOpenDropdown(null)}>
+                    <span className="text-emerald-600 mr-3">🎯</span>
+                    <span className="font-medium">Strategic Consulting</span>
+                  </a>
+                </Link>
+                <Link href="/#offerings" legacyBehavior>
+                  <a className="dropdown-item-professional flex items-center" onClick={() => setOpenDropdown(null)}>
+                    <span className="text-blue-600 mr-3">⚙️</span>
+                    <span className="font-medium">Implementation Services</span>
+                  </a>
+                </Link>
+                <Link href="/#offerings" legacyBehavior>
+                  <a className="dropdown-item-professional flex items-center" onClick={() => setOpenDropdown(null)}>
+                    <span className="text-amber-600 mr-3">📖</span>
+                    <span className="font-medium">Training & Enablement</span>
+                  </a>
+                </Link>
+                <Link href="/#offerings" legacyBehavior>
+                  <a className="dropdown-item-professional flex items-center" onClick={() => setOpenDropdown(null)}>
+                    <span className="text-red-600 mr-3">🛠️</span>
+                    <span className="font-medium">Managed Services</span>
+                  </a>
+                </Link>
               </div>
             </div>
 
             {/* Products Dropdown */}
-            <div
-              className="dropdown relative"
-              onMouseEnter={() => setOpenDropdown('products')}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
+            <div className="dropdown relative">
               <button
                 className="relative px-4 py-2 text-gray-700 hover:text-cyan-600 transition-all font-medium group flex items-center focus:outline-none"
                 onClick={() => handleDropdown('products')}
@@ -198,19 +211,20 @@ export default function ResponsiveNavigation() {
               </button>
               <div className={`dropdown-content-professional absolute left-0 mt-2 min-w-[220px] bg-white rounded-xl shadow-lg border border-cyan-100 z-50 ${openDropdown === 'products' ? '' : 'hidden'}`}>
                 <Link href="/data-governance" legacyBehavior>
-                  <a className="dropdown-item-professional flex items-center">
-                    <span className="mr-3" style={{width: 28, height: 28}}>
-                      <Image src="/images/DataMind.png" alt="Data Mind" width={28} height={28} className="object-contain" />
-                    </span>
-                    <div className="font-medium">Data Mind</div>
+                  <a className="dropdown-item-professional flex items-center whitespace-nowrap" onClick={() => setOpenDropdown(null)}>
+                    <Image src="/images/DataMind.png" alt="Data Mind" width={16} height={16} className="object-contain mr-2 flex-shrink-0 inline-block" />
+                    <span className="font-medium inline-block">Data Mind</span>
                   </a>
                 </Link>
               </div>
             </div>
-
-            <a href="#contact" className="relative px-4 py-2 text-white bg-cyan-600 hover:bg-cyan-700 transition-all font-medium rounded-full shadow-md flex items-center">
-              <span className="relative z-10">Contact Us</span>
-            </a>
+            
+            <Link href="/#contact" legacyBehavior>
+              <a className="relative px-4 py-2 text-white bg-cyan-600 hover:bg-cyan-700 transition-all font-medium rounded-full shadow-md flex items-center">
+                <span className="relative z-10">Contact Us</span>
+              </a>
+            </Link>
+            </div>
           </div>
 
           {/* Mobile Hamburger Button - Show when in mobile mode */}
@@ -280,18 +294,20 @@ export default function ResponsiveNavigation() {
               <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openDropdown === 'products-mobile' ? 'max-h-32' : 'max-h-0'}`}>
                 <div className="bg-gray-50 px-6 py-2">
                   <Link href="/data-governance" legacyBehavior>
-                    <a className="flex items-center py-2 text-gray-600 hover:text-cyan-600 transition-colors" onClick={closeMenu}>
-                      <Image src="/images/DataMind.png" alt="Data Mind" width={20} height={20} className="object-contain mr-3" />
-                      Data Mind
+                    <a className="flex items-center py-2 text-gray-600 hover:text-cyan-600 transition-colors whitespace-nowrap" onClick={closeMenu}>
+                      <Image src="/images/DataMind.png" alt="Data Mind" width={16} height={16} className="object-contain mr-2 flex-shrink-0 inline-block" />
+                      <span className="inline-block">Data Mind</span>
                     </a>
                   </Link>
                 </div>
               </div>
             </div>
 
-            <a href="#contact" className="block mx-4 mt-2 px-4 py-3 text-white bg-cyan-600 hover:bg-cyan-700 transition-all font-medium rounded-full text-center" onClick={closeMenu}>
-              Contact Us
-            </a>
+            <Link href="/#contact" legacyBehavior>
+              <a className="block mx-4 mt-2 px-4 py-3 text-white bg-cyan-600 hover:bg-cyan-700 transition-all font-medium rounded-full text-center" onClick={closeMenu}>
+                Contact Us
+              </a>
+            </Link>
           </div>
         </div>
       </div>
