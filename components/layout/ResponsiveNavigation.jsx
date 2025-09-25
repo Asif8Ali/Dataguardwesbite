@@ -41,16 +41,17 @@ export default function ResponsiveNavigation() {
     initialCheck();
 
     const resizeObserver = new ResizeObserver(checkNavigationMode);
-    if (navRef.current) {
-      resizeObserver.observe(navRef.current);
+    const currentNavRef = navRef.current;
+    if (currentNavRef) {
+      resizeObserver.observe(currentNavRef);
     }
 
     const handleResize = () => setTimeout(checkNavigationMode, 10);
     window.addEventListener('resize', handleResize);
 
     return () => {
-      if (resizeObserver && navRef.current) {
-        resizeObserver.unobserve(navRef.current);
+      if (resizeObserver && currentNavRef) {
+        resizeObserver.unobserve(currentNavRef);
       }
       window.removeEventListener('resize', handleResize);
     };
