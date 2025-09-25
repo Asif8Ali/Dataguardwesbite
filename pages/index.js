@@ -349,131 +349,77 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Contact Section */}
-          <section id="contact" className="text-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white rounded-2xl shadow-2xl p-8 md:p-12 border border-blue-200/20 relative overflow-hidden">
+          {/* Contact Section - Simplified */}
+          <section id="contact" className="text-center bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white rounded-2xl shadow-2xl p-8 border border-blue-200/20 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10"></div>
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(56,189,248,0.1),transparent_50%)]"></div>
-            <div className="absolute -top-4 -right-4 w-32 h-32 bg-cyan-400/20 rounded-full blur-2xl"></div>
-            <div className="absolute -bottom-4 -left-4 w-40 h-40 bg-blue-400/20 rounded-full blur-2xl"></div>
             
             <div className="relative z-10">
               {/* Header */}
-              <div className="mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  Let&apos;s Connect
+              <div className="mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  Contact Us
                 </h2>
-                <p className="text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed">
-                  Ready to transform your identity infrastructure? Get your free security assessment and expert recommendations today.
+                <p className="text-lg text-blue-200 max-w-2xl mx-auto">
+                  Ready to secure your infrastructure? Get in touch today.
                 </p>
-              </div>
-
-              {/* Value Proposition Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 border border-white/10">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">Free Security Assessment</h3>
-                  <p className="text-blue-200 leading-relaxed">Comprehensive analysis of your current identity infrastructure with actionable insights</p>
-                </div>
-                
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 border border-white/10">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">Expert Consultation</h3>
-                  <p className="text-blue-200 leading-relaxed">Get personalized recommendations from certified identity and security professionals</p>
-                </div>
-                
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105 border border-white/10">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">Quick Response</h3>
-                  <p className="text-blue-200 leading-relaxed">Get responses within 24 hours and start your transformation journey immediately</p>
-                </div>
               </div>
 
               {/* Contact Information */}
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 mb-8 max-w-4xl mx-auto">
-                <h3 className="text-2xl font-bold text-white mb-8">Get In Touch</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {/* Email */}
-                  <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl p-6 hover:from-cyan-500/30 hover:to-blue-500/30 transition-all duration-300 border border-cyan-400/20">
-                    <div className="flex items-center justify-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.893 5.421a2 2 0 002.214 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                      </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+                {/* Email */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 border border-white/10">
+                  <div className="flex items-center justify-center mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.893 5.421a2 2 0 002.214 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
                     </div>
-                    <h4 className="font-semibold text-white mb-2">Email Us</h4>
-                    <a href="mailto:contact@dgraud.net" className="text-cyan-300 hover:text-cyan-200 transition-colors font-medium text-sm break-all">contact@dgraud.net</a>
                   </div>
+                  <h4 className="font-semibold text-white mb-2">Email</h4>
+                  <a href="mailto:contact@dgraud.net" className="text-cyan-300 hover:text-cyan-200 transition-colors font-medium text-sm break-all">contact@dgraud.net</a>
+                </div>
 
-                  {/* Phone - Saudi Arabia */}
-                  <div className="bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-xl p-6 hover:from-emerald-500/30 hover:to-green-500/30 transition-all duration-300 border border-emerald-400/20">
-                    <div className="flex items-center justify-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <h4 className="font-semibold text-white mb-2">Saudi Arabia</h4>
-                    <div className="space-y-1">
-                      <a href="tel:+966565052220" className="block text-emerald-300 hover:text-emerald-200 transition-colors font-medium text-sm">+966-565052220</a>
-                      <a href="tel:+966541045831" className="block text-emerald-300 hover:text-emerald-200 transition-colors font-medium text-sm">+966-541045831</a>
+                {/* Phone - Saudi Arabia */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 border border-white/10">
+                  <div className="flex items-center justify-center mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
                     </div>
                   </div>
+                  <h4 className="font-semibold text-white mb-2">Saudi Arabia</h4>
+                  <a href="tel:+966565052220" className="text-emerald-300 hover:text-emerald-200 transition-colors font-medium text-sm">+966-565052220</a>
+                </div>
 
-                  {/* Phone - India */}
-                  <div className="bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-xl p-6 hover:from-orange-500/30 hover:to-red-500/30 transition-all duration-300 border border-orange-400/20 md:col-span-2 lg:col-span-1">
-                    <div className="flex items-center justify-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                      </div>
+                {/* Phone - India */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 border border-white/10">
+                  <div className="flex items-center justify-center mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
                     </div>
-                    <h4 className="font-semibold text-white mb-2">India</h4>
-                    <a href="tel:+919910339578" className="text-orange-300 hover:text-orange-200 transition-colors font-medium text-sm">+91-9910339578</a>
                   </div>
+                  <h4 className="font-semibold text-white mb-2">India</h4>
+                  <a href="tel:+919910339578" className="text-orange-300 hover:text-orange-200 transition-colors font-medium text-sm">+91-9910339578</a>
                 </div>
               </div>
 
-              {/* Call to Action */}
-              <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-2xl p-8 border border-cyan-400/30">
-                <h3 className="text-2xl font-bold text-white mb-4">Ready to Get Started?</h3>
-                <p className="text-blue-200 mb-6 max-w-2xl mx-auto">
-                  Join hundreds of organizations that trust us with their identity infrastructure. Let&apos;s discuss how we can secure and streamline your operations.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <a href="mailto:contact@dgraud.net" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.893 5.421a2 2 0 002.214 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <span>Send Email</span>
-                  </a>
-                  <a href="tel:+966565052220" className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40 flex items-center space-x-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <span>Call Now</span>
-                  </a>
-                </div>
+              {/* Simple Call to Action */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="mailto:contact@dgraud.net" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.893 5.421a2 2 0 002.214 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>Send Email</span>
+                </a>
+                <a href="tel:+966565052220" className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40 flex items-center space-x-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>Call Now</span>
+                </a>
               </div>
             </div>
           </section>

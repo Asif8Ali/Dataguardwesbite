@@ -167,16 +167,22 @@ export default function ResponsiveNavigation() {
               <div
                 className={`dropdown-content-professional absolute left-0 mt-2 min-w-[260px] bg-white rounded-xl shadow-lg border border-cyan-100 z-50 ${openDropdown === 'services' ? '' : 'hidden'}`}
               >
-                <Link href="/services/strategic-consulting" legacyBehavior>
+                <Link href="/#offerings" legacyBehavior>
                   <a className="dropdown-item-professional flex items-center" onClick={() => setOpenDropdown(null)}>
                     <span className="text-emerald-600 mr-3">🎯</span>
-                    <span className="font-medium">Strategic Consulting & Implementation</span>
+                    <span className="font-medium">Strategic Consulting</span>
                   </a>
                 </Link>
-                <Link href="/services/home-html" legacyBehavior>
+                <Link href="/#offerings" legacyBehavior>
                   <a className="dropdown-item-professional flex items-center" onClick={() => setOpenDropdown(null)}>
-                    <span className="text-blue-600 mr-3">📋</span>
-                    <span className="font-medium">Methodology & Approach</span>
+                    <span className="text-blue-600 mr-3">⚙️</span>
+                    <span className="font-medium">Implementation Services</span>
+                  </a>
+                </Link>
+                <Link href="/#offerings" legacyBehavior>
+                  <a className="dropdown-item-professional flex items-center" onClick={() => setOpenDropdown(null)}>
+                    <span className="text-amber-600 mr-3">📖</span>
+                    <span className="font-medium">Training & Enablement</span>
                   </a>
                 </Link>
                 <Link href="/#offerings" legacyBehavior>
@@ -257,19 +263,26 @@ export default function ResponsiveNavigation() {
               </button>
               <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openDropdown === 'services-mobile' ? 'max-h-64' : 'max-h-0'}`}>
                 <div className="bg-gray-50 px-6 py-2 space-y-2">
-                  <Link href="/services/strategic-consulting">
+                  <Link href="/#offerings">
                     <span className="block py-2 text-gray-600 hover:text-cyan-600 transition-colors cursor-pointer" onClick={closeMenu}>
-                      🎯 Strategic Consulting & Implementation
+                      🎯 Strategic Consulting
                     </span>
                   </Link>
-                  <Link href="/services/home-html">
+                  <Link href="/#offerings">
                     <span className="block py-2 text-gray-600 hover:text-cyan-600 transition-colors cursor-pointer" onClick={closeMenu}>
-                      📋 Methodology & Approach
+                      ⚙️ Implementation Services
                     </span>
                   </Link>
-                  <a href="#support" className="block py-2 text-gray-600 hover:text-cyan-600 transition-colors" onClick={closeMenu}>
-                    🛠️ Managed Services
-                  </a>
+                  <Link href="/#offerings">
+                    <span className="block py-2 text-gray-600 hover:text-cyan-600 transition-colors cursor-pointer" onClick={closeMenu}>
+                      📖 Training & Enablement
+                    </span>
+                  </Link>
+                  <Link href="/#offerings">
+                    <span className="block py-2 text-gray-600 hover:text-cyan-600 transition-colors cursor-pointer" onClick={closeMenu}>
+                      🛠️ Managed Services
+                    </span>
+                  </Link>
                 </div>
               </div>
             </div>

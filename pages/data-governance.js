@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import ResponsiveNavigation from '../components/layout/ResponsiveNavigation'
+
 export default function DataGovernance() {
   return (
     <>
@@ -10,14 +11,14 @@ export default function DataGovernance() {
         <meta name="description" content="Complete Data Governance and Security Solutions tailored for Saudi PDPL and NCA requirements." />
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-800" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-800 font-['Inter',sans-serif] overflow-x-hidden">
         <ResponsiveNavigation />
-        <header className="bg-gradient-to-r from-cyan-600 to-indigo-600 text-white py-12 shadow-lg">
-          <div className="container mx-auto px-6">
+        <header className="bg-gradient-to-r from-cyan-600 to-indigo-600 text-white py-8 sm:py-12 shadow-lg">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="flex-1">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold">Complete Data Governance and Security Solutions</h1>
-                <p className="mt-3 text-cyan-100 text-base md:text-lg lg:text-xl max-w-3xl">Explore DataMind&apos;s integrated modules, purpose-built specifically for Saudi compliance and the unique needs of organizations in the Kingdom.</p>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold">Complete Data Governance and Security Solutions</h1>
+                <p className="mt-3 text-cyan-100 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl">Explore DataMind&apos;s integrated modules, purpose-built specifically for Saudi compliance and the unique needs of organizations in the Kingdom.</p>
               </div>
               <div className="hidden md:block md:flex-shrink-0 md:ml-8">
                 <div className="relative w-80 h-44 md:w-[440px] md:h-[280px] lg:w-[520px] lg:h-[320px] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-200 border border-white/30 bg-white/50">
@@ -29,7 +30,7 @@ export default function DataGovernance() {
           </div>
         </header>
 
-        <main className="container mx-auto px-6 py-12">
+        <main className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
           <section id="unified-dictionary" className="mb-12">
             <div className="flex flex-col md:flex-row items-stretch gap-6">
               {/* Image on left for md+; stack on mobile */}
